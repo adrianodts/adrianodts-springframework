@@ -1,6 +1,5 @@
 package com.adrianodts.springframework.factorybeans.config;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,14 +22,12 @@ public class FactoryConfig {
         
     }
     
-    @Bean
-    @Qualifier //("portugueseHelloService")
+    @Bean(name = "portugueseHelloService")
     public HelloService portugueseHelloService() throws Exception {
         return FactoryBean.create(getLanguage());
     }
 
-    @Bean
-    @Qualifier //("spanishHelloService")
+    @Bean(name = "spanishHelloService")
     public HelloService spanishHelloService() throws Exception {
         return FactoryBean.create(getLanguage());
     }
