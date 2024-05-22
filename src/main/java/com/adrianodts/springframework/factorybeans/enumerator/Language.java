@@ -1,4 +1,4 @@
-package com.adrianodts.springframework.factorybeans;
+package com.adrianodts.springframework.factorybeans.enumerator;
 
 import java.util.Arrays;
 

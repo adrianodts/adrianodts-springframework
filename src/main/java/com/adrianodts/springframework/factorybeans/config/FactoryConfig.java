@@ -1,10 +1,14 @@
-package com.adrianodts.springframework.factorybeans;
+package com.adrianodts.springframework.factorybeans.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+
+import com.adrianodts.springframework.factorybeans.enumerator.Language;
+import com.adrianodts.springframework.factorybeans.factory.FactoryBean;
+import com.adrianodts.springframework.factorybeans.service.HelloService;
 
 @Configuration
 public class FactoryConfig {
@@ -14,20 +18,20 @@ public class FactoryConfig {
 
     @Bean
     @Primary
-    public HelloWorldService englishHelloService() throws Exception {
+    public HelloService englishHelloService() throws Exception {
         return FactoryBean.create(getLanguage());
         
     }
     
     @Bean
     @Qualifier //("portugueseHelloService")
-    public HelloWorldService portugueseHelloService() throws Exception {
+    public HelloService portugueseHelloService() throws Exception {
         return FactoryBean.create(getLanguage());
     }
 
     @Bean
     @Qualifier //("spanishHelloService")
-    public HelloWorldService spanishHelloService() throws Exception {
+    public HelloService spanishHelloService() throws Exception {
         return FactoryBean.create(getLanguage());
     }
 

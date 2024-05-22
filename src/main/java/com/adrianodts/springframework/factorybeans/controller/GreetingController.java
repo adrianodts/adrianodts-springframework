@@ -1,21 +1,22 @@
-package com.adrianodts.springframework.factorybeans;
+package com.adrianodts.springframework.factorybeans.controller;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.adrianodts.springframework.factorybeans.service.HelloService;
+
 
 
 @RestController
 @RequestMapping("api")
 public class GreetingController {
 
-    private HelloWorldService helloWorldService;
+    private HelloService helloService;
 
-    @Autowired
-    public void setHelloWorldService(HelloWorldService helloWorldService) {
-        this.helloWorldService = helloWorldService;
+    public GreetingController(HelloService helloService) {
+        this.helloService = helloService;
     }
 
     @GetMapping("/sayHello")
@@ -24,7 +25,7 @@ public class GreetingController {
     }
     
     public String sayHello() {
-        String message = helloWorldService.sayHello();
+        String message = helloService.sayHello();
         System.out.println(message);
         return message;
     }
