@@ -8,8 +8,6 @@
 
 # Example:
 
-# Markdown
-
 ```
 java  -Dspring.profiles.active=english  -jar target/xml-configurationa-0.0.1-SNAPSHOT.jar
 ```
