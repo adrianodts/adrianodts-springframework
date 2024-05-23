@@ -6,8 +6,9 @@
 
 - It loads a spring bean basead on env profile.
 
-# Example:
+# Test:
 
+- Execute the command to execute app with profile "english" 
 ```
 java  -Dspring.profiles.active=english  -jar target/xml-configurationa-0.0.1-SNAPSHOT.jar
 ```
