@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="myBean" class="com.adrianodts.springframework.xmlconfiguration.MyBean">
+        <!-- <property name="message" reference value="Hey I am here!!" /> -->
+        <constructor-arg name="message" value="Hey I am here!!"/>
+    </bean>
+
+    <bean id="messageFactory" class="com.adrianodts.springframework.xmlconfiguration.MessageFactory"/>
+
+    <bean id="messageService" class="com.adrianodts.springframework.xmlconfiguration.MessageService">
+        <constructor-arg ref="factoryService"/>
+    </bean>
+
+    <beans profile="english">
+        <bean id="factoryService" factory-bean="messageFactory" factory-method="create" primary="true">
+            <constructor-arg value="en"/>
+        </bean>         
+    </beans>
+
+     <beans profile="portuguese">
+        <bean id="factoryService" factory-bean="messageFactory" factory-method="create" primary="true">
+            <constructor-arg value="pt"/>
+        </bean>
+    </beans>
+
+</beans>
