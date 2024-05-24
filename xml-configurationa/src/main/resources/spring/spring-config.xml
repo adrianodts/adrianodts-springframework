@@ -16,15 +16,11 @@
     </bean>
 
     <beans profile="english">
-        <bean id="factoryService" factory-bean="messageFactory" factory-method="create" primary="true">
-            <constructor-arg value="en"/>
-        </bean>         
+        <import resource="classpath*:spring/spring-config-english.xml"/>   
     </beans>
 
      <beans profile="portuguese">
-        <bean id="factoryService" factory-bean="messageFactory" factory-method="create" primary="true">
-            <constructor-arg value="pt"/>
-        </bean>
+        <import resource="classpath*:spring/spring-config-portuguese.xml"/>  
     </beans>
 
 </beans>
